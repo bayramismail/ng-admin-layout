@@ -1,0 +1,53 @@
+// ─── ng-admin-layout Ana Stil Dosyası ─────────────────────────────────────────
+//
+// Kullanım (angular.json styles array):
+//   "node_modules/ng-admin-layout/styles/index.scss"
+//
+// Özelleştirme (kendi styles.scss'inizde):
+//   :root {
+//     --nal-primary: #ff6b6b;
+//     --nal-primary-rgb: 255, 107, 107;
+//     --nal-sidebar-width: 280px;
+//   }
+
+@use './variables';
+@use './dark-theme';
+
+// ─── Temel reset ──────────────────────────────────────────────────────────────
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--nal-body-bg);
+  color: var(--nal-text-primary);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}

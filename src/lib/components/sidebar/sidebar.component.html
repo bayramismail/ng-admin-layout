@@ -1,0 +1,105 @@
+<aside
+  class="nal-sidebar"
+  [class.mini]="isMini()"
+  [class.open]="isOpen()"
+  [class.mobile]="isMobile()"
+>
+  <!-- Logo (nalLogo template varsa onu, yoksa default) -->
+  <div class="nal-sidebar-header">
+    @if (logoTemplate()) {
+      <div class="nal-logo-custom">
+        <ng-container [ngTemplateOutlet]="logoTemplate()!" />
+      </div>
+    } @else {
+      <a class="nal-logo" [routerLink]="logoRoute">
+        <div class="nal-logo-icon">
+          <i [class]="logoIcon"></i>
+        </div>
+        <span class="nal-logo-text">{{ logoText }}</span>
+      </a>
+    }
+    @if (isMobile()) {
+      <button class="nal-close-btn" (click)="closeSidebar.emit()" aria-label="Close sidebar">
+        <i class="ri-close-line"></i>
+      </button>
+    }
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nal-sidebar-nav" role="navigation" aria-label="Main navigation">
+    @for (item of navItems; track item.id) {
+      @if (!item.children) {
+        <a
+          class="nal-nav-item nal-nav-link"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [title]="isMini() ? item.label : ''"
+          (click)="onLeafClick()"
+        >
+          @if (item.icon) {
+            <i class="nal-nav-icon" [class]="item.icon"></i>
+          }
+          <span class="nal-nav-label">{{ item.label }}</span>
+        </a>
+      } @else {
+        <div class="nal-nav-item nal-nav-group" [class.expanded]="isExpanded(item.id)">
+          <button
+            class="nal-nav-link nal-nav-parent"
+            (click)="toggleExpand(item.id)"
+            [title]="isMini() ? item.label : ''"
+            type="button"
+          >
+            @if (item.icon) {
+              <i class="nal-nav-icon" [class]="item.icon"></i>
+            }
+            <span class="nal-nav-label">{{ item.label }}</span>
+            <i class="nal-nav-arrow ri-arrow-right-s-line"></i>
+          </button>
+
+          @if (!isMini()) {
+            <div class="nal-nav-children" [class.open]="isExpanded(item.id)">
+              @for (child of item.children; track child.id) {
+                @if (!child.children) {
+                  <a
+                    class="nal-nav-child-link"
+                    [routerLink]="child.route"
+                    routerLinkActive="active"
+                    (click)="onLeafClick()"
+                  >
+                    <span class="nal-nav-dot"></span>
+                    <span>{{ child.label }}</span>
+                  </a>
+                } @else {
+                  <div class="nal-nav-child-group" [class.expanded]="isExpanded(child.id)">
+                    <button
+                      class="nal-nav-child-link nal-nav-child-parent"
+                      (click)="toggleExpand(child.id)"
+                      type="button"
+                    >
+                      <span class="nal-nav-dot"></span>
+                      <span>{{ child.label }}</span>
+                      <i class="nal-nav-arrow ri-arrow-right-s-line"></i>
+                    </button>
+                    <div class="nal-nav-grandchildren" [class.open]="isExpanded(child.id)">
+                      @for (grandchild of child.children; track grandchild.id) {
+                        <a
+                          class="nal-nav-grandchild-link"
+                          [routerLink]="grandchild.route"
+                          routerLinkActive="active"
+                          (click)="onLeafClick()"
+                        >
+                          <span class="nal-nav-dot small"></span>
+                          <span>{{ grandchild.label }}</span>
+                        </a>
+                      }
+                    </div>
+                  </div>
+                }
+              }
+            </div>
+          }
+        </div>
+      }
+    }
+  </nav>
+</aside>

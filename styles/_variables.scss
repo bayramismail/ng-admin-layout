@@ -1,0 +1,41 @@
+// ─── ng-admin-layout Light Theme (default) ────────────────────────────────────
+// Tüm CSS değişkenleri --nal- prefix ile tanımlanmıştır.
+// Herhangi bir değişkeni kendi stillerinizde :root içinde geçersiz kılabilirsiniz.
+
+:root {
+  // ── Boyutlar ────────────────────────────────────────────────────────────────
+  --nal-sidebar-width: 260px;
+  --nal-sidebar-mini-width: 68px;
+  --nal-header-height: 64px;
+  --nal-footer-height: 56px;
+
+  // ── Renk Paleti ─────────────────────────────────────────────────────────────
+  --nal-primary: #7367f0;
+  --nal-primary-light: #ebe9fd;
+  --nal-primary-dark: #5e50ee;
+  --nal-primary-rgb: 115, 103, 240;
+
+  // ── Arkaplan ────────────────────────────────────────────────────────────────
+  --nal-sidebar-bg: #ffffff;
+  --nal-header-bg: #ffffff;
+  --nal-body-bg: #f8f7fa;
+
+  // ── Yazı Renkleri ───────────────────────────────────────────────────────────
+  --nal-text-primary: #2d2d2d;
+  --nal-text-secondary: #6e6b7b;
+  --nal-text-muted: #b9b9c3;
+
+  // ── Kenarlık ────────────────────────────────────────────────────────────────
+  --nal-border-color: #ebe9fd;
+  --nal-border-radius: 8px;
+  --nal-border-radius-lg: 12px;
+
+  // ── Gölgeler ────────────────────────────────────────────────────────────────
+  --nal-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --nal-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --nal-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  // ── Geçişler ────────────────────────────────────────────────────────────────
+  --nal-transition: all 0.3s ease;
+  --nal-transition-fast: all 0.15s ease;
+}

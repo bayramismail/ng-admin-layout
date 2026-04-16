@@ -1,0 +1,25 @@
+{
+  "name": "ng-admin-layout",
+  "version": "1.0.0",
+  "description": "Reusable Angular admin layout with dark/light mode and full CSS variable customization",
+  "keywords": ["angular", "admin", "layout", "sidebar", "dark-mode", "theme", "ng-template", "primeng-style"],
+  "author": "ismail bayram",
+  "license": "MIT",
+  "homepage": "https://github.com/bayramismail/ng-admin-layout#readme",
+  "bugs": {
+    "url": "https://github.com/bayramismail/ng-admin-layout/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bayramismail/ng-admin-layout.git"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=17.0.0",
+    "@angular/core": ">=17.0.0",
+    "@angular/router": ">=17.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

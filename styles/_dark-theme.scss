@@ -1,0 +1,25 @@
+// ─── ng-admin-layout Dark Theme ───────────────────────────────────────────────
+// [data-nal-theme="dark"] seçicisi ile dark mod değerleri tanımlanmıştır.
+// ThemeService, temayı değiştirdiğinde <html> elementine data-nal-theme="dark"
+// attribute'unu ekler.
+
+[data-nal-theme="dark"] {
+  // ── Arkaplan ────────────────────────────────────────────────────────────────
+  --nal-sidebar-bg: #25293c;
+  --nal-header-bg: #2f3349;
+  --nal-body-bg: #25293c;
+
+  // ── Yazı Renkleri ───────────────────────────────────────────────────────────
+  --nal-text-primary: #d0d4f1;
+  --nal-text-secondary: #8a8fad;
+  --nal-text-muted: #5c5f77;
+
+  // ── Kenarlık ────────────────────────────────────────────────────────────────
+  --nal-border-color: #3a3f5c;
+  --nal-primary-light: rgba(115, 103, 240, 0.16);
+
+  // ── Gölgeler ────────────────────────────────────────────────────────────────
+  --nal-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --nal-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --nal-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}

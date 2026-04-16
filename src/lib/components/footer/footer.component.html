@@ -1,0 +1,18 @@
+<footer class="nal-footer">
+  @if (contentTemplate()) {
+    <!-- Özel footer içeriği (nalFooter template) -->
+    <ng-container [ngTemplateOutlet]="contentTemplate()!" />
+  } @else {
+    <!-- Varsayılan footer -->
+    <span class="nal-footer-copy">
+      &copy; {{ currentYear }}
+      <strong>{{ copyright }}</strong>
+    </span>
+
+    <nav class="nal-footer-links" aria-label="Footer navigation">
+      @for (link of links; track link.label) {
+        <a [href]="link.href" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+      }
+    </nav>
+  }
+</footer>

@@ -1,0 +1,67 @@
+<header class="nal-header">
+  <div class="nal-header-left">
+    <button class="nal-menu-toggle" (click)="toggleSidebar.emit()" aria-label="Toggle sidebar">
+      <i class="ri-menu-line"></i>
+    </button>
+
+    <div class="nal-search-wrapper" [class.focused]="isSearchFocused()">
+      <i class="ri-search-line nal-search-icon"></i>
+      <input
+        type="text"
+        placeholder="Search (CTRL+K)"
+        class="nal-search-input"
+        (focus)="isSearchFocused.set(true)"
+        (blur)="isSearchFocused.set(false)"
+        aria-label="Search"
+      />
+      <kbd class="nal-search-kbd">CTRL K</kbd>
+    </div>
+  </div>
+
+  <div class="nal-header-right">
+    @if (actionsTemplate()) {
+      <!-- Özel aksiyon alanı (nalHeaderActions template) -->
+      <ng-container [ngTemplateOutlet]="actionsTemplate()!" />
+    } @else {
+      <!-- Varsayılan aksiyonlar -->
+      <button
+        class="nal-header-action"
+        (click)="themeService.toggleTheme()"
+        aria-label="Toggle theme"
+        title="Toggle theme"
+      >
+        @if (themeService.isDark()) {
+          <i class="ri-moon-line"></i>
+        } @else {
+          <i class="ri-sun-line"></i>
+        }
+      </button>
+
+      <button class="nal-header-action nal-notification-btn" aria-label="Notifications" title="Notifications">
+        <i class="ri-notification-3-line"></i>
+        @if (notificationCount() > 0) {
+          <span class="nal-notification-badge">{{ notificationCount() }}</span>
+        }
+      </button>
+
+      <div class="nal-header-divider" role="separator"></div>
+
+      <button class="nal-user-btn" aria-label="User menu" title="User menu">
+        <div class="nal-avatar">
+          @if (avatarUrl) {
+            <img [src]="avatarUrl" alt="avatar" />
+          } @else {
+            <i class="ri-user-3-line"></i>
+          }
+        </div>
+        <div class="nal-user-info">
+          <span class="nal-user-name">{{ userName }}</span>
+          @if (userRole) {
+            <span class="nal-user-role">{{ userRole }}</span>
+          }
+        </div>
+        <i class="ri-arrow-down-s-line nal-user-arrow"></i>
+      </button>
+    }
+  </div>
+</header>

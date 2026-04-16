@@ -1,0 +1,34 @@
+<div
+  class="nal-layout-wrapper"
+  [class.sidebar-mini]="sidebarMini()"
+  [class.sidebar-open]="sidebarOpen()"
+  [class.is-mobile]="isMobileView()"
+>
+  <nal-sidebar
+    [isOpen]="sidebarOpen()"
+    [isMini]="sidebarMini()"
+    [isMobile]="isMobileView()"
+    [items]="resolvedItems()"
+    [logoTemplate]="logoTpl()"
+    (closeSidebar)="closeSidebar()"
+  />
+
+  @if (sidebarOpen() && isMobileView()) {
+    <div class="nal-sidebar-overlay" (click)="closeSidebar()"></div>
+  }
+
+  <div class="nal-layout-content-wrapper">
+    <nal-header
+      [actionsTemplate]="actionsTpl()"
+      (toggleSidebar)="toggleSidebar()"
+    />
+
+    <main class="nal-layout-main">
+      <div class="nal-main-content">
+        <router-outlet />
+      </div>
+    </main>
+
+    <nal-footer [contentTemplate]="footerTpl()" />
+  </div>
+</div>
