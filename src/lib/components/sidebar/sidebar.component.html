@@ -102,4 +102,11 @@
       }
     }
   </nav>
+
+  <!-- Sidebar Alt Alan (nalSidebarBottom template varsa göster) -->
+  @if (bottomTemplate()) {
+    <div class="nal-sidebar-bottom">
+      <ng-container [ngTemplateOutlet]="bottomTemplate()!" />
+    </div>
+  }
 </aside>

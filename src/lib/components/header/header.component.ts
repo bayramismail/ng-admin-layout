@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, output, signal, TemplateRef, input } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { LAYOUT_CONFIG } from '../../tokens/layout-config.token';
+import { LayoutService } from '../../services/layout.service';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ThemeService } from '../../services/theme.service';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  protected readonly config = inject(LAYOUT_CONFIG);
+  private readonly layoutService = inject(LayoutService);
   readonly themeService = inject(ThemeService);
 
   readonly toggleSidebar = output<void>();
@@ -23,15 +23,15 @@ export class HeaderComponent implements OnInit {
   protected notificationCount = signal(0);
 
   protected get userName(): string {
-    return this.config.user?.name ?? 'User';
+    return this.layoutService.config().user?.name ?? 'User';
   }
 
   protected get userRole(): string {
-    return this.config.user?.role ?? '';
+    return this.layoutService.config().user?.role ?? '';
   }
 
   protected get avatarUrl(): string | null {
-    return this.config.user?.avatarUrl ?? null;
+    return this.layoutService.config().user?.avatarUrl ?? null;
   }
 
   ngOnInit(): void {}

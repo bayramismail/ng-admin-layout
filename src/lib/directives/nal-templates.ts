@@ -46,9 +46,30 @@ export class NalFooterDirective {
   readonly template = inject<TemplateRef<unknown>>(TemplateRef);
 }
 
+/**
+ * Sidebar'ın alt kısmını özelleştirmek için kullan.
+ * Navigasyon menüsünün hemen altında render edilir.
+ * Kullanıcı profili widget'ı, versiyon numarası vb. için idealdir.
+ *
+ * @example
+ * <nal-layout>
+ *   <ng-template nalSidebarBottom>
+ *     <div class="user-widget">
+ *       <img src="avatar.png" />
+ *       <span>İsmail B.</span>
+ *     </div>
+ *   </ng-template>
+ * </nal-layout>
+ */
+@Directive({ selector: 'ng-template[nalSidebarBottom]', standalone: true })
+export class NalSidebarBottomDirective {
+  readonly template = inject<TemplateRef<unknown>>(TemplateRef);
+}
+
 /** Tüm template direktifleri tek import'ta */
 export const NAL_TEMPLATE_DIRECTIVES = [
   NalLogoDirective,
   NalHeaderActionsDirective,
   NalFooterDirective,
+  NalSidebarBottomDirective,
 ] as const;

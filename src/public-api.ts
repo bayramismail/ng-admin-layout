@@ -11,11 +11,13 @@ export * from './lib/tokens/layout-config.token';
 
 // Services
 export * from './lib/services/theme.service';
+export * from './lib/services/layout.service';
 
 // Provider
 export * from './lib/provide-layout';
 
 // Template Directives (PrimeNG stili ng-template slotları)
+// NalLogoDirective, NalHeaderActionsDirective, NalFooterDirective, NalSidebarBottomDirective, NAL_TEMPLATE_DIRECTIVES
 export * from './lib/directives/nal-templates';
 
 // Components
