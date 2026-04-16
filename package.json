@@ -1,6 +1,6 @@
 {
   "name": "ng-admin-layout",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable Angular admin layout with dark/light mode and full CSS variable customization",
   "keywords": ["angular", "admin", "layout", "sidebar", "dark-mode", "theme", "ng-template", "primeng-style"],
   "author": "ismail bayram",
